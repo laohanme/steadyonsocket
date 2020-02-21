@@ -29,7 +29,7 @@ npm install
 
 #### 3. Run on command prompt
 ```
-node index.js
+nodemon
 ```
 
 #### 4. Browser
