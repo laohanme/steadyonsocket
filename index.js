@@ -10,10 +10,10 @@ app.get('/', function (req, res) {
 io.on('connection', function (socket) {
 	console.log(socket.id + " Connected")
 
-	socket.on('chat message', function (msg) {
-		console.log(socket.id  + ': ' + msg);
+	socket.on('chat message', function (data) {
+		console.log(socket.id + " " + data.name +': ' + data.msg);
 		io.emit('chat message', {
-			msg: msg,
+			data: data,
 			senderId: socket.id 
 		});
 	});
