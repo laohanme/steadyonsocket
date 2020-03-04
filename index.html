@@ -1,8 +1,10 @@
 <!doctype html>
-<html>
-
+<html lang="en">
 <head>
-	<title>Socket.IO chat</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>steadyonsocket</title>
+	<title>steadyonsocket</title>
 	<style>
 		* {
 			margin: 0;
@@ -46,8 +48,26 @@
 			padding: 5px 10px;
 		}
 
-		#messages li:nth-child(odd) {
-			background: #eee;
+		@media (prefers-color-scheme: dark) {
+			body {
+				color: #fff;
+				background-color: #000;
+			}
+
+			#messages li:nth-child(odd) {
+				background: #000;
+			}
+		}
+
+		@media (prefers-color-scheme: light) {
+			body {
+				color: #000;
+				background-color: #fff;
+			}
+
+			#messages li:nth-child(odd) {
+				background: #eee;
+			}
 		}
 	</style>
 </head>
@@ -78,7 +98,7 @@
 			});
 
 			socket.on('chat message', function (data) {
-				$('#messages').append($('<li>').text(data.data.name + " : "+ data.data.msg));
+				$('#messages').append($('<li>').text(data.data.name + " : " + data.data.msg));
 			});
 		});
 
