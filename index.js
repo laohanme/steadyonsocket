@@ -18,7 +18,7 @@ try {
 			if (err) throw err
 		})
 	}
-} 
+}
 catch (err) {
 	console.log(err)
 }
@@ -41,6 +41,11 @@ io.on('connection', function (socket) {
 			data: data,
 			senderId: socket.id
 		})
+	})
+
+	socket.on('locationUpdate', function (data) {
+		console.log(data)
+		io.emit('locationUpdate', { data })
 	})
 
 	socket.on('disconnect', function () {
